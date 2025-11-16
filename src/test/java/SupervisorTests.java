@@ -13,18 +13,24 @@ public class SupervisorTests extends A_BaseTest {
     }
     @Test
     void checkProposals() {
-        app.proposalListPage.open();
+        //app.proposalListPage.open();
+        app.mainPage.dropdownMenu.click();
+        app.mainPage.dropdownMenuRoute.find(exactText("Мои заявки")).click();
         app.proposalListPage.proposalCardsList.shouldHave(sizeGreaterThan(0));
     }
     @Test
     void checkProjects() {
-        app.projectsListPage.open();
+        //app.projectsListPage.open();
+        app.mainPage.dropdownMenu.click();
+        app.mainPage.dropdownMenuRoute.find(exactText("Мои проекты")).click();
         app.projectsListPage.projectsList.shouldHave(sizeGreaterThan(0));
     }
 
     @Test
     void rejectionReason() {
-        app.proposalListPage.open();
+        //app.proposalListPage.open();
+        app.mainPage.dropdownMenu.click();
+        app.mainPage.dropdownMenuRoute.find(exactText("Мои заявки")).click();
         app.proposalListPage.rejectionReasonButton.should(exist);
         app.proposalListPage.rejectionReasonButton.click();
         app.proposalListPage.rejectionModal.shouldBe();

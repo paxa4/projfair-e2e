@@ -2,8 +2,9 @@ import com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.Condition.*;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.checked;
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static org.testng.AssertJUnit.assertTrue;
 
 import com.codeborne.selenide.Configuration;
@@ -24,7 +25,10 @@ public class DirectorTests extends A_BaseTest {
     @Test
     void uploadReport() {
         Configuration.fileDownload = FileDownloadMode.FOLDER;
-        app.projectReportsPage.open();
+        //app.projectReportsPage.open();
+        app.mainPage.dropdownMenu.click();
+        app.mainPage.dropdownMenuRoute.find(exactText("Отчёты")).click();
+        $(byText("Все отчёты")).click();
         app.projectReportsPage.filterAccordion.click();
         if (!app.projectReportsPage.checkbox.isSelected()) {
             app.projectReportsPage.checkbox.click();
@@ -38,7 +42,7 @@ public class DirectorTests extends A_BaseTest {
     }
     @Test
     void uploadReportAlt() {
-        app.projectReportsPage.open();
+        //app.projectReportsPage.open();
         app.projectReportsPage.filterAccordion.click();
         if (!app.projectReportsPage.checkboxAlt.isSelected()) {
             app.projectReportsPage.checkboxAlt.click();
