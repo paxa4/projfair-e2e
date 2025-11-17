@@ -12,7 +12,7 @@ public class ProjectReportsPage extends BasePage {
     public SelenideElement notDelivieredReportsCheckBox = $("[data-test='institute-director-project-reports-not-delivered'] input.checkbox");
     public SelenideElement delivieredReportsCheckBox = $("[data-test='institute-director-project-reports-delivered'] input.checkbox");
     public SelenideElement file = $("[data-test='institute-director-project-reports-upload-report']");
-    public SelenideElement uploadDisabled = $("[data-test='institute-director-project-reports-upload-disabled']");
+    public SelenideElement downloadDisabled = $("[data-test='institute-director-project-reports-upload-disabled']");
     public ProjectReportsPage(String pageUrl) {
         super(pageUrl);
     }

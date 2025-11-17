@@ -46,6 +46,6 @@ public class DirectorTests extends A_BaseTest {
         }
         app.projectReportsPage.delivieredReportsCheckBox.shouldBe(checked);
         app.projectReportsPage.projectReportsList.shouldHave(sizeGreaterThan(0));
-        app.projectReportsPage.uploadDisabled.should(exist);
+        app.projectReportsPage.downloadDisabled.should(exist);
     }
 }
