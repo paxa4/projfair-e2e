@@ -12,16 +12,32 @@ public class StudentTest extends A_BaseTest {
         app.mainPage.open();
         app.mainPage.mockLogin(false);
     }
+    @Test
+    void checkMyApplications() {
+        app.mainPage.dropdownMenu.click();
+        app.mainPage.dropdownMenuRoute.find(exactText("Мои заявки")).click();
+        studentPage.closeModal();
+        studentPage.checkCardsVisible();
+    }
 
     @Test
     void studentLoginAndEditApplications() {
         app.mainPage.dropdownMenu.click();
         app.mainPage.dropdownMenuRoute.find(exactText("Мои заявки")).click();
-
-        studentPage.closeModal();
         studentPage.clickEditApplications();
         studentPage.deleteParticipationCard();
         studentPage.deleteApplication();
         studentPage.saveChanges();
     }
+    @Test
+    void participateInProject() {
+        studentPage.openAllProjects();
+        studentPage.participateInProject();
+        studentPage.clickPriorityHigh();
+        studentPage.clickPriorityMedium();
+        studentPage.clickPriorityLow();
+        studentPage.submitParticipation();
+        studentPage.closeParticipationModal();
+    }
+
 }
